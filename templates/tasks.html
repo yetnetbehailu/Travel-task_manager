@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-
+<h3 class="purple-text text-darken-4 center-align">All Tasks</h3>
     <ul class="collapsible">
         {% for task in tasks%}  
         <li>
@@ -8,7 +8,9 @@
             {%if task.is_urgent=='on'%}
                 <i class="fas fa-exclamation-circle purple-text text-lighten-2 tooltipped" data-position="right" data-tooltip="URGENT!"></i>
             {% endif %} </div>
-            <div class="collapsible-body"><strong>{{task.category_name}}</strong><p>{{task.task_description}}</p></div>
+            <div class="collapsible-body"><strong>{{task.category_name}}</strong><p>{{task.task_description}}</p>
+                <p>{{ task.task_description }}</p>
+                <p><em>by: {{ task.created_by }}</em></p></div>
         </li>
         {% endfor %}
     </ul>
